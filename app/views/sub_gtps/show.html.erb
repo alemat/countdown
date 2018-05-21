@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sub_gtp.name %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @sub_gtp.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @sub_gtp.end_date %>
+</p>
+
+<p>
+  <strong>Gtp planner:</strong>
+  <%= @sub_gtp.gtp_planner %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @sub_gtp.description %>
+</p>
+
+<%= link_to 'Edit', edit_sub_gtp_path(@sub_gtp) %> |
+<%= link_to 'Back', sub_gtps_path %>

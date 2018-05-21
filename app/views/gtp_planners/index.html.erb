@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gtp Planners</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gtp_planners.each do |gtp_planner| %>
+      <tr>
+        <td><%= gtp_planner.name %></td>
+        <td><%= gtp_planner.start_date %></td>
+        <td><%= gtp_planner.end_date %></td>
+        <td><%= gtp_planner.description %></td>
+        <td><%= link_to 'Show', gtp_planner %></td>
+        <td><%= link_to 'Edit', edit_gtp_planner_path(gtp_planner) %></td>
+        <td><%= link_to 'Destroy', gtp_planner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gtp Planner', new_gtp_planner_path %>

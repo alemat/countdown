@@ -1,0 +1,35 @@
+<div class="container-fluid mb-5">
+<h1>Directorates</h1>
+            <!--Section: Basic examples-->
+            <section>                   
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table table-striped table-bordered table-responsive-md" cellspacing="0" width="100%">
+                                <thead>
+                                  <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <% @directorates.each do |directorate| %>
+                                    <tr>
+                                      <td><%= directorate.name %></td>
+                                      <td><%= directorate.description %></td>
+                                      <td>
+                                      <%= link_to 'Show', directorate, class: 'btn btn-info' %>
+                                       <% if current_user.try(:superadmin_role?) || current_user.try(:supervisor_role?) %>
+                                      <%= link_to 'Edit', edit_directorate_path(directorate), class: 'btn btn-primary' %>
+                                      <%= link_to 'Destroy', directorate, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+                                      <% end %>
+                                      </td>
+                                    </tr>
+                                  <% end %>
+                                </tbody>
+                              </table>
+
+<br>
+
+<%= link_to 'New Directorate', new_directorate_path, class: 'btn btn-info' %>

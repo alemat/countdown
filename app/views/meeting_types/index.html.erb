@@ -1,0 +1,33 @@
+<div class="container-fluid mb-5">
+<h1>Meeting Types</h1>
+            <!--Section: Basic examples-->
+            <section>                   
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table table-striped table-bordered table-responsive-md" cellspacing="0" width="100%">
+                                <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @meeting_types.each do |meeting_type| %>
+      <tr>
+        <td><%= meeting_type.name %></td>
+        <td><%= meeting_type.description %></td>
+        <td><%= link_to 'Show', meeting_type, class: 'btn btn-info' %>
+        <% if current_user.try(:superadmin_role?) || current_user.try(:supervisor_role?) %>
+        <%= link_to 'Edit', edit_meeting_type_path(meeting_type), class: 'btn btn-default' %>
+        <%= link_to 'Destroy', meeting_type, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Meeting Type', new_meeting_type_path, class: 'btn btn-info' %>

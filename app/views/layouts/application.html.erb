@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>MOH | HSTP Countdown Timer</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="http://172.19.7.39:8050/cdt/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://172.19.7.39:8050/cdt/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://172.19.7.39:8050/cdt/css/dataTables.bootstrap4.min.css"/>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
+  </head>
+
+<body class="fixed-sn light-blue-skin" background="#6a9ed3" >
+
+    <header>
+        <!-- Sidebar navigation -->
+        <div id="slide-out" class="side-nav sn-bg-4 fixed">
+            <ul class="custom-scrollbar">
+                <!-- Logo -->
+                <li>
+                    <div class="logo-wrapper waves-light">
+                       <center> <a href="http://172.19.7.39:3000/"><img src="http://172.19.7.39:8050/cdt/img/fdre.png" class="img-fluid flex-center" width="65%" height="65%"></a></center>
+                    </div>
+                </li>
+                <!--/. Logo -->
+                <!--Social-->
+                <li>
+                    <center> Federal Ministry of Health </br> HSTP Countdown Timer</center>
+                </li>
+                <li>
+                    <ul class="social">
+                        <li><a href="http://www.facebook.com/EthiopiaFMoH" class="icons-sm fb-ic"><i class="fa fa-facebook"> </i></a></li>
+                        <li><a href="http://www.youtube.com/user/FMoHealthEthiopia" class="icons-sm gplus-ic"><i class="fa fa-google-plus"> </i></a></li>
+                        <li><a href="https://twitter.com/FMoHealth" class="icons-sm tw-ic"><i class="fa fa-twitter"> </i></a></li>
+                    </ul>
+                </li>
+                <!--/Social-->
+                <!--Search Form-->
+                <li>
+                    <form class="search-form" role="search">
+                        <div class="form-group md-form mt-0 pt-1 waves-light">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                    </form>
+                </li>
+                <!--/.Search Form-->
+                <!-- Side navigation links -->
+                <li>
+                    <ul class="collapsible collapsible-accordion">
+                        
+                        <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-diamond"></i> Projects <i class="fa fa-angle-down rotate-icon"></i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li>
+                                         <%= link_to projects_path, class: "waves-effect" do %>
+                                         Projects List
+                                         <% end %>
+                                    </li>
+                                    <% if current_user.try(:superadmin_role?) || current_user.try(:supervisor_role?) %>
+                                    <li>
+                                         <%= link_to new_project_path, class: "waves-effect" do %>
+                                         Add New Project
+                                         <% end %>
+                                    </li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-chevron-right"></i> Events<i class="fa fa-angle-down rotate-icon"></i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li>
+                                         <%= link_to events_path, class: "waves-effect" do %>
+                                         Events List
+                                         <% end %>
+                                    </li>
+                                    <% if current_user.try(:superadmin_role?) || current_user.try(:supervisor_role?) %>
+                                    <li>
+                                         <%= link_to new_event_path, class: "waves-effect" do %>
+                                         Add New Event
+                                         <% end %>
+                                    </li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-indent"></i> Meetings<i class="fa fa-angle-down rotate-icon"></i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li>
+                                         <%= link_to meetings_path, class: "waves-effect" do %>
+                                         Meeting List</a>
+                                         <% end %>
+                                    </li>
+                                    <li>
+                                        <%= link_to new_meeting_path, class: "waves-effect" do %>
+                                        Create New Meeting
+                                        <% end %>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-book"></i> Instruction<i class="fa fa-angle-down rotate-icon"></i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li>
+                                                <%= link_to help_index_path, class: "waves-effect" do %>
+                                                How it works
+                                                <% end %>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-envelope-o"></i> Contact Us<i class="fa fa-angle-down rotate-icon"></i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="http://www.moh.gov.et/faq" class="waves-effect">FAQ</a>
+                                    </li>
+                                    <li><a href="mailto:moh@ethionet.et" class="waves-effect">Write a message</a>
+                                    </li>
+                                    <li><a href="http://www.moh.gov.et/web/guest/help" class="waves-effect">Help</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <!--/. Side navigation links -->
+            </ul>
+            <div class="sidenav-bg mask-strong"></div>
+        </div>
+        <!--/. Sidebar navigation -->
+        <!-- Navbar -->
+        <nav class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav">
+            <!-- SideNav slide-out button -->
+            <div class="float-left">
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
+            </div>
+            <!-- Breadcrumb-->
+            <div class="breadcrumb-dn mr-auto">
+                <p> <b>MOH</b> | <b>HSTP Countdown Timer</b></p>
+            </div>
+            <ul class="nav navbar-nav nav-flex-icons ml-auto">  
+                                  
+                      <% if current_user.nil? %>
+                        <%= link_to new_user_session_path, class: 'login-button' do %><i class="fa fa-sign-in mr-1"> </i> Sign in<% end %>
+                      <% else %>
+                       <% if current_user.try(:superadmin_role?) || current_user.try(:supervisor_role?) %>
+                        <li class="nav-item dropdown">
+                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-gear"></i> Settings 
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                          <%= link_to directorates_path, class: "dropdown-item" do %>
+                            Directorates
+                          <% end %>
+                          <%= link_to meeting_types_path, class: "dropdown-item" do %>
+                            Meeting Types
+                          <% end %>
+                        </div>
+                      </li>
+                      <% end %>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%= current_user.email rescue nil %>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                          <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
+                            Change Password
+                          <% end %>
+                          <%= link_to destroy_user_session_path, class: "dropdown-item" do %>
+                            Sign Out
+                          <% end %>
+                        </div>
+                      <% end %>
+                     </li>
+            </ul>
+        </nav>
+        <!-- /.Navbar -->
+    </header>
+    <!--/.Double navigation-->
+
+    <main>
+        <!--Main Layout-->
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <div class="card-body">
+                    <%= yield %>
+    </div>
+    
+    </main>
+        <!--Main layout-->
+
+
+<!--Footer-->
+        <footer id="footer" class="page-footer">
+</br>
+</br>
+            <!--Footer Links-->
+            <div class="container-fluid text-center text-md-left">
+                <div class="row wow fadeIn" data-wow-delay="0.2s">
+                    <!--First column-->
+                    <div class="col-md-4">
+                        <p class="column-title white-text"><strong>ABOUT THE MINISTRY</strong></p>
+                        <ul class="list-unstyled">
+                            <li><a id="footer-link-faq" href="http://www.moh.gov.et/web/guest/overview-of-the-ministry">Overview of the Ministry</a></li>
+                            <li><a id="footer-link-browsers" href="http://www.moh.gov.et/web/guest/vision-mission-and-objective">Vision, Mission, and Objective</a></li>
+                            <li><a id="footer-link-team" href="http://www.moh.gov.et/web/guest/programs-and-projects">Programs and Projects</a></li>
+                            <li><a id="footer-link-team" href="http://www.moh.gov.et/web/guest/organizational-structure">Organizational Structure</a></li>
+                            <li><a id="footer-link-team" href="http://www.moh.gov.et/web/guest/directoratesdirectorates">Directorates</a></li>
+                            <li><a id="footer-link-team" href="http://www.moh.gov.et/web/guest/development-partnersdevelopment-partners">Development Partners</a></li>
+                            <li><a id="footer-link-team" href="http://www.moh.gov.et/web/guest/fact-sheets">Fact Sheets</a></li>
+                            <li><a id="footer-link-team" href="http://www.moh.gov.et/web/guest/health-service-providers">Health Service Providers</a></li>
+                            <li><a id="footer-link-team" href="http://www.moh.gov.et/web/guest/webcast">Webcast</a></li>
+                            
+                        </ul>
+                    </div>
+                    <!--/.First column-->
+                    <hr class="w-100 clearfix d-md-none">
+                    <!--Second column-->
+                    <div class="col-md-4">
+                        <p class="column-title white-text"><strong>INITIATIVES</strong></p>
+                        <ul class="list-unstyled">
+                            <li><a id="footer-link-license" href="http://www.moh.gov.et/web/guest/medical-services">Medical Services</a></li>
+                            <li><a id="footer-link-changelog" href="http://www.moh.gov.et/web/guest/human-resources">Human Resource</a></li>
+                            <li><a id="footer-link-policy" href="http://www.moh.gov.et/web/guest/maternal-child-health-and-nutrition">Maternal Child Health & Nutrition</a></li>
+                            <li><a id="footer-link-refund" href="http://www.moh.gov.et/web/guest/disease-prevention-and-control">Disease Prevention and Control</a></li>
+                            
+                        </ul>
+                    </div>
+                    <!--/.Second column-->
+                    <hr class="w-100 clearfix d-md-none">
+                    <!--Third column-->
+                    <div class="col-md-3">
+                        <p class="column-title white-text"><strong>MEDIA ROOM</strong></p>
+                        <ul class="list-unstyled">
+                            <li><a id="footer-link-affiliate" href="http://www.moh.gov.et/web/guest/news">News</a></li>
+                            <li><a id="footer-link-students" href="http://www.moh.gov.et/web/guest/press-release">Press Release</a></li>
+                            <li><a id="footer-link-sponsorship" href="http://www.moh.gov.et/web/guest/newsletter">Newsletter</a></li>
+                            <li><a id="footer-link-sponsorship" href="http://www.moh.gov.et/web/guest/events">Events</a></li>
+                            <li><a id="footer-link-sponsorship" href="http://www.moh.gov.et/web/guest/health-video-program">Videos</a></li>
+                            <li><a id="footer-link-sponsorship" href="http://www.moh.gov.et/web/guest/photo-gallery">Photo Galleries</a></li>
+                            
+                        </ul>
+
+                    </div>
+                    <!--/.Third column-->
+
+                </div>
+            </div>
+            <!--/.Footer Links-->
+            <hr>
+            <!--Call to action-->
+            <div class="text-center wow fadeIn" data-wow-delay="0.2s">
+                <ul class="list-unstyled">
+                    <li>
+                        <a id="footer-button-download" href="http://www.moh.gov.et/web/guest/resources" class="btn btn-info">
+                            <fa class="fa fa-download left"></fa> Downloads</a>
+                        <a id="footer-button-newsletter" href="http://www.moh.gov.et/web/guest/newsletter" class="btn blue-gradient">
+                            <fa class="fa fa-newspaper-o left"></fa> Subscribe to our newsletter</a>
+                        <a id="footer-button-support" href="http://www.moh.gov.et/web/guest/connect" class="btn btn-indigo">
+                            <fa class="fa fa-comments-o left"></fa> Support</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.Call to action-->
+            <hr>
+            <!--/.Social buttons-->
+            <div class="text-center mb-3 wow fadeIn" data-wow-delay="0.2s">
+                <a id="footer-social-facebook" target="_blank" href="http://www.facebook.com/EthiopiaFMoH" class="btn-floating btn-social-all "><i class="fa fa-facebook left"></i> Facebook</a>
+                <a id="footer-social-twitter" target="_blank" href="https://twitter.com/FMoHealth" class="btn-floating btn-social-all "><i class="fa fa-twitter left"></i> Twitter</a>
+                <a id="footer-social-gplus" target="_blank" href="http://www.youtube.com/user/FMoHealthEthiopia"
+                    class="btn-floating btn-social-all "><i class="fa fa-google-plus left"></i> Google +</a>
+                <a id="footer-social-linkedin" target="_blank" href="mailto:moh@ethionet.et" class="btn-floating btn-social-all "><i class="fa fa-linkedin left"></i> LinkedIn</a>
+
+            </div>
+            <!--/.Social buttons-->
+
+            <!--Copyright-->
+            <div class="footer-copyright wow fadeIn py-3 text-center" data-wow-delay="0.2s">
+                <div class="container-fluid">
+                    &copy;
+                    2018 Copyright: <a href="http://www.moh.gov.et/"> moh.gov.et </a>
+                </div>
+            </div>
+            <!--/.Copyright-->
+
+        </footer>
+        <!--/.Footer-->
+
+
+    <script type="text/javascript" src="http://172.19.7.39:8050/cdt/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="http://172.19.7.39:8050/cdt/js/popper.min.js"></script>
+    <script type="text/javascript" src="http://172.19.7.39:8050/cdt/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://172.19.7.39:8050/cdt/js/mdb.min.js"></script>
+    <script type="text/javascript" src="http://172.19.7.39:8050/cdt/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://172.19.7.39:8050/cdt/js/dataTables.bootstrap4.min.js"></script>
+
+
+
+      <script>
+      
+        $(".button-collapse").sideNav();
+
+        var container = document.querySelector('.custom-scrollbar');
+        Ps.initialize(container, {
+            wheelSpeed: 2,
+            wheelPropagation: true,
+            minScrollbarLength: 20
+        });
+
+        $(document).ready(function() {
+            $('#datatables').DataTable();
+        });
+
+        $(document).ready(function () {
+            $('select[name="datatables_length"]').material_select();
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<div class="container-fluid">
+        <!--Section: Intro-->
+                    <section class="mb-5">
+                        <div class="card py-2  mb-5 gradient-card-header sn-bg-4-bg" >
+                            <div class="card-body text-center">
+                              </br>
+                              <center><font color="white" size="40px"><p id="hstpcountdown"></p> </font></center>
+                              </br>
+                            </div>
+                            <hr>
+                             <center><font color="white" size="8px" weight="bold">HSTP TIMER</font></center>
+                        </div>
+                    </section>
+        <!--Section: Intro-->
+</div>
+<br>
+<div class="container-fluid mb-5">
+<h1>Projects</h1>
+            <!--Section: Basic examples-->
+            <section>
+                                                
+                        <div class="card">
+                            <div class="card-body">
+                                <table id="datatables" class="table table-striped table-bordered table-responsive-md" cellspacing="0" width="100%">
+                                  <thead>
+                                    <tr>
+                                      <th>Title</th>
+                                      <th>Project owner</th>
+                                      <th>Start Date</th>
+                                      <th>End Date</th>
+                                      <th></th>
+                                    </tr>
+                                  </thead>
+
+                                  <tbody>
+                                     <% current_user.projects.each do |project| %>
+                                      <tr>
+                                        <td><%= project.title %></td>
+                                        <td><%= project.project_owner %></td>
+                                        <td><%= project.start_time %></td>
+                                        <td><%= project.end_time %></td>
+
+                                        <td>
+                                        <%= link_to 'Show Timer', project, class: 'btn btn-info' %> 
+                                        <% if current_user.try(:superadmin_role?) || current_user.try(:supervisor_role?) %>
+                                        <%= link_to 'Edit', edit_project_path(project), class: 'btn btn-success' %> 
+                                        <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %>
+                                        <% end %>
+                                        </td>
+                                      </tr>
+                                    <% end %>
+                                  </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+            </section>
+            <!--Section: Basic examples-->
+</div>                                
+
+
+<br>
+<% if current_user.try(:superadmin_role?) || current_user.try(:supervisor_role?) %>
+<%= link_to 'New Project', new_project_path, class: 'btn btn-info' %>
+<% end %>
+
+
+
+
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Dec 30, 2020 15:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+    document.getElementById("hstpcountdown").innerHTML = days + "  Days  : " + hours + " Hours  : "
+    + minutes + "  Minutes  : " + seconds + " Seconds";
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("hstpcountdown").innerHTML = "Project Ended on" + eventDate;
+    }
+}, 1000);
+</script>

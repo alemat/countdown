@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  first_name: MyString
+  father_name: MyString
+  grand_father_name: MyString
+  profession_title: MyString
+  directorate: one
+  role: MyString
+  cv: MyText
+  upload_picture: 
+
+two:
+  user: two
+  first_name: MyString
+  father_name: MyString
+  grand_father_name: MyString
+  profession_title: MyString
+  directorate: two
+  role: MyString
+  cv: MyText
+  upload_picture: 

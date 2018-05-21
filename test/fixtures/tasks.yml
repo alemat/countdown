@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  due_date: 2018-05-18 01:34:35
+  status: false
+  weekly_plan: one
+
+two:
+  name: MyString
+  due_date: 2018-05-18 01:34:35
+  status: false
+  weekly_plan: two

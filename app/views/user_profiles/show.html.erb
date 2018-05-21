@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_profile.user %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @user_profile.first_name %>
+</p>
+
+<p>
+  <strong>Father name:</strong>
+  <%= @user_profile.father_name %>
+</p>
+
+<p>
+  <strong>Grand father name:</strong>
+  <%= @user_profile.grand_father_name %>
+</p>
+
+<p>
+  <strong>Profession title:</strong>
+  <%= @user_profile.profession_title %>
+</p>
+
+<p>
+  <strong>Directorate:</strong>
+  <%= @user_profile.directorate %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @user_profile.role %>
+</p>
+
+<p>
+  <strong>Cv:</strong>
+  <%= @user_profile.cv %>
+</p>
+
+<p>
+  <strong>Upload picture:</strong>
+  <%= @user_profile.upload_picture %>
+</p>
+
+<%= link_to 'Edit', edit_user_profile_path(@user_profile) %> |
+<%= link_to 'Back', user_profiles_path %>

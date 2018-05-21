@@ -1,0 +1,2 @@
+class GtpPlanner < ApplicationRecord
+end

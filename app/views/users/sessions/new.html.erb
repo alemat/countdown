@@ -1,0 +1,32 @@
+
+<div class="card mx-xm-5">
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  
+    <div class="card-body">
+        <div class="form-header deep-blue-gradient rounded">
+         <h3><i class="fa fa-lock"></i> Login:</h3>
+        </div>
+
+        <div class="md-form font-weight-light">
+         <%= f.input :email, required: false %>
+        </div>
+        
+        <div class="md-form font-weight-light">
+         <%= f.input :password, required: false %>
+        </div>
+        
+         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <div class="text-center mt-4">
+          <div class="form-actions">
+            <%= f.button :submit, "Log in", class: "btn btn-light-blue waves-effect waves-light" %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="options font-weight-light">
+            <%= render "users/shared/links" %>
+          </div>
+        </div>
+    </div>
+
+<% end %>
+</div>

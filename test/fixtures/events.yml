@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  title: MyString
+  description: MyText
+  event_organizer: MyString
+  event_location: MyString
+  contact_person: MyString
+  email: MyString
+  phone: 1
+  start_time: 2018-05-18 01:37:24
+  end_time: 2018-05-18 01:37:24
+
+two:
+  user: two
+  title: MyString
+  description: MyText
+  event_organizer: MyString
+  event_location: MyString
+  contact_person: MyString
+  email: MyString
+  phone: 1
+  start_time: 2018-05-18 01:37:24
+  end_time: 2018-05-18 01:37:24

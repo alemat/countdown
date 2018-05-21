@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @weekly_plan.user %>
+</p>
+
+<p>
+  <strong>Plan title:</strong>
+  <%= @weekly_plan.plan_title %>
+</p>
+
+<%= link_to 'Edit', edit_weekly_plan_path(@weekly_plan) %> |
+<%= link_to 'Back', weekly_plans_path %>

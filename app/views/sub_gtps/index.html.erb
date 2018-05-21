@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sub Gtps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Gtp planner</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sub_gtps.each do |sub_gtp| %>
+      <tr>
+        <td><%= sub_gtp.name %></td>
+        <td><%= sub_gtp.start_date %></td>
+        <td><%= sub_gtp.end_date %></td>
+        <td><%= sub_gtp.gtp_planner %></td>
+        <td><%= sub_gtp.description %></td>
+        <td><%= link_to 'Show', sub_gtp %></td>
+        <td><%= link_to 'Edit', edit_sub_gtp_path(sub_gtp) %></td>
+        <td><%= link_to 'Destroy', sub_gtp, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sub Gtp', new_sub_gtp_path %>

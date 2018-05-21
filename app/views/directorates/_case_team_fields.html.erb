@@ -1,0 +1,28 @@
+<legend>Case Teams</legend>
+      <%= f.simple_fields_for :case_teams do |tf| %>
+        <div class='fields row'>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Case Team Name</th>
+            <th>Description</th>
+
+            <th></th>
+          </tr>
+          </thead>
+            <tr>
+              <td>
+                <%= tf.input_field :name, placeholder: 'Name', class: 'form-control' %>
+                <%= tf.full_error :name %>
+              </td>
+              <td>
+                <%= tf.input_field :description, class: 'form-control' %>
+                <%= tf.full_error :description %>
+              </td>
+              <td><%= tf.link_to_remove "remove" %></td>
+            </tr>
+        </table>
+        </div>
+      <% end %>
+    <p><%= f.link_to_add "Add Case Team", :case_teams %></p>
+  </div>

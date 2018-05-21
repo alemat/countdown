@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="card-body">
+<p>
+  <strong>Meeting:</strong>
+  <%= @minute.meeting %>
+</p>
+<p>
+  <strong>Content:</strong>
+  <%= @minute.content %>
+</p>
+
+<%= link_to 'Edit', edit_minute_path(@minute), class: 'btn btn-info' %> |
+<%= link_to 'Back', minutes_path, class: 'btn btn-info' %>
+
+</div>
+</div>

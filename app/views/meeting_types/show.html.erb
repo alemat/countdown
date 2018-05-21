@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-body">
+
+<p>
+  <strong>Name:</strong>
+  <%= @meeting_type.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @meeting_type.description %>
+</p>
+
+<%= link_to 'Edit', edit_meeting_type_path(@meeting_type), class: 'btn btn-info' %> |
+<%= link_to 'Back', meeting_types_path, class: 'btn btn-default' %>
+    </div>
+</div>
