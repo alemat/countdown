@@ -1,0 +1,5 @@
+/* Your custom styles */
+.view {
+    background: url("/assets/sidenav4.jpg")no-repeat center center;
+    background-size: cover;
+}

@@ -7,6 +7,7 @@ class User < ApplicationRecord
   after_create :send_admin_mail
   has_many :meetings
   has_many :projects
+  has_many :weekly_plans
   
 
   def send_admin_mail

@@ -6,12 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>MOH | HSTP Countdown Timer</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="http://172.19.7.39:8050/cdt/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://172.19.7.39:8050/cdt/css/mdb.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="http://172.19.7.39:8050/cdt/css/dataTables.bootstrap4.min.css"/>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application' %>
     
   </head>
 
@@ -24,7 +19,7 @@
                 <!-- Logo -->
                 <li>
                     <div class="logo-wrapper waves-light">
-                       <center> <a href="http://172.19.7.39:3000/"><img src="http://172.19.7.39:8050/cdt/img/fdre.png" class="img-fluid flex-center" width="65%" height="65%"></a></center>
+                       <center> <a href="http://localhost:3000/"><img src="http://localhost/cdt/img/fdre.png" class="img-fluid flex-center" width="65%" height="65%"></a></center>
                     </div>
                 </li>
                 <!--/. Logo -->
@@ -100,6 +95,22 @@
                                     <li>
                                         <%= link_to new_meeting_path, class: "waves-effect" do %>
                                         Create New Meeting
+                                        <% end %>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-indent"></i> Weekly Planer<i class="fa fa-angle-down rotate-icon"></i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li>
+                                         <%= link_to weekly_plans_path, class: "waves-effect" do %>
+                                         My Weekly Plans</a>
+                                         <% end %>
+                                    </li>
+                                    <li>
+                                        <%= link_to new_weekly_plan_path, class: "waves-effect" do %>
+                                        Create New Weekly Plan
                                         <% end %>
                                     </li>
                                 </ul>
@@ -188,7 +199,6 @@
 
     <main>
         <!--Main Layout-->
-    <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <div class="card-body">
                     <%= yield %>
@@ -293,36 +303,33 @@
 
         </footer>
         <!--/.Footer-->
+            <%= javascript_include_tag 'application' %>
 
-
-    <script type="text/javascript" src="http://172.19.7.39:8050/cdt/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="http://172.19.7.39:8050/cdt/js/popper.min.js"></script>
-    <script type="text/javascript" src="http://172.19.7.39:8050/cdt/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://172.19.7.39:8050/cdt/js/mdb.min.js"></script>
-    <script type="text/javascript" src="http://172.19.7.39:8050/cdt/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="http://172.19.7.39:8050/cdt/js/dataTables.bootstrap4.min.js"></script>
-
-
-
-      <script>
-      
+        <script>
+        
+        // SideNav Initialization
         $(".button-collapse").sideNav();
 
-        var container = document.querySelector('.custom-scrollbar');
-        Ps.initialize(container, {
-            wheelSpeed: 2,
-            wheelPropagation: true,
-            minScrollbarLength: 20
-        });
+    </script>
 
-        $(document).ready(function() {
-            $('#datatables').DataTable();
-        });
+    
+    <!-- Initializations -->
+    <script>
+        // SideNav Initialization
+        $(".button-collapse").sideNav();
 
+        // Material Select Initialization
         $(document).ready(function () {
-            $('select[name="datatables_length"]').material_select();
+            $('.mdb-select').material_select();
         });
 
+        // Data Picker Initialization
+        $('.datepicker').pickadate();
+
+        // Tooltip Initialization
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
     </script>
 
 </body>

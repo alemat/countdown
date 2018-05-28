@@ -26,7 +26,7 @@ class MinutesController < ApplicationController
   # POST /minutes
   # POST /minutes.json
   def create
-    @minute = Minute.new(minute_params)
+    @minute = current_user.minutes.new(minute_params)
 
     respond_to do |format|
       if @minute.save

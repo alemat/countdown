@@ -35,10 +35,6 @@
     <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
         <br>
           <p>
-          <p>
-            <strong>Directorate:</strong>
-            <%= @meeting.directorate %>
-          </p>
 
           <p>
             <strong>Meeting type:</strong>
@@ -91,8 +87,13 @@
 
     <div class="tab-pane fade" id="panel4" role="tabpanel">
         <br>
+          <% unless @meeting.minute.blank? %>
+            <label>Menute</label>
             <p>
-                <%= link_to 'Add Minute', new_minute_path(meeting: @meeting.id), class: 'btn btn-info' %>
+                <%= raw @meeting.minute.content %>
+            <% else %>
+                <%= link_to 'Add Minute', new_minute_path(meeting: @meeting.id), class: 'btn btn-info' if @meeting.minute.blank? %>
+            <% end %>
             </p>
     </div>
 </div>
@@ -128,8 +129,8 @@ var x = setInterval(function() {
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
     // Output the result in an element with id="demo"
-    document.getElementById("meetingcountdown").innerHTML = days + "  Days  : " + hours + " Hours  : "
-    + minutes + "  Minutes  : " + seconds + " Seconds";
+    document.getElementById("meetingcountdown").innerHTML = days + "  Days  : " + hours + " h : "
+    + minutes + " m : " + seconds + " s";
     
     // If the count down is over, write some text 
     if (distance < 0) {

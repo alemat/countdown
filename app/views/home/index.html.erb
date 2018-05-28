@@ -13,7 +13,8 @@
         <!--Section: Intro-->
 </div>
 
-
+<br>
+<br>
 <!-- Card deck -->
 <div class="card-deck">
 
@@ -22,8 +23,8 @@
 
     <!--Card image-->
     <div class="view overlay">
-      <img class="card-img-top" src="http://172.19.7.39:8050/cdt/img/events.jpg" alt="Card image cap">
-      <a href="http://172.19.7.39:3000/events">
+      <img class="card-img-top" src="http://localhost/cdt/img/events.jpg" alt="Card image cap">
+      <a href="http://localhost:3000/events">
         <div class="mask rgba-white-slight"></div>
       </a>
     </div>
@@ -50,8 +51,8 @@
 
     <!--Card image-->
     <div class="view overlay">
-      <img class="card-img-top" src="http://172.19.7.39:8050/cdt/img/projects2.jpg" alt="Card image cap">
-      <a href="http://172.19.7.39:3000/projects">
+      <img class="card-img-top" src="http://localhost/cdt/img/projects2.jpg" alt="Card image cap">
+      <a href="http://localhost:3000/projects">
         <div class="mask rgba-white-slight"></div>
       </a>
     </div>
@@ -79,8 +80,8 @@
 
     <!--Card image-->
     <div class="view overlay">
-      <img class="card-img-top" src="http://172.19.7.39:8050/cdt/img/todolist.jpg" alt="Card image cap">
-      <a href="#!">
+      <img class="card-img-top" src="http://localhost/cdt/img/todolist.jpg" alt="Card image cap">
+      <a href="http://localhost:3000/weekly_plans">
         <div class="mask rgba-white-slight"></div>
       </a>
     </div>
@@ -93,7 +94,9 @@
       <!--Text-->
       <p class="card-text"> Keep track of your different responsibilities, and schedule your time appropriately.</p>
       <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-      <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+      <%= link_to weekly_plans_path, class: "waves-effect" do %>
+        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+      <% end %>
 
     </div>
 
@@ -130,8 +133,8 @@ var x = setInterval(function() {
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
     // Output the result in an element with id="demo"
-    document.getElementById("hstpcountdown").innerHTML = days + " Days : " + hours + " Hours : "
-    + minutes + " Minutes : " + seconds + " Seconds";
+    document.getElementById("hstpcountdown").innerHTML = days + " Days : " + hours + " h : "
+    + minutes + " m : " + seconds + " s";
     
     // If the count down is over, write some text 
     if (distance < 0) {

@@ -7,7 +7,7 @@
     <tr>
       <th>Meeting</th>
       <th>Content</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -16,9 +16,9 @@
       <tr>
         <td><%= minute.meeting %></td>
         <td><%= minute.content %></td>
-        <td><%= link_to 'Show', minute %></td>
-        <td><%= link_to 'Edit', edit_minute_path(minute) %></td>
-        <td><%= link_to 'Destroy', minute, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', minute %>
+        <%= link_to 'Edit', edit_minute_path(minute) %>
+        <%= link_to 'Destroy', minute, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

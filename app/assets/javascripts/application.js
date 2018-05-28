@@ -10,11 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require mdb/index
 //= require bootstrap-wysihtml5
 //= require rails-ujs
 //= require jquery_nested_form
-//= require turbolinks
-//= require toastr
-//= require moment 
-//= require fullcalendar
-//= require_tree .
+//= require global

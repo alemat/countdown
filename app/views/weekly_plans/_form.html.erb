@@ -1,13 +1,21 @@
 
-<%= simple_form_for(@weekly_plan) do |f| %>
+<%= simple_nested_form_for(@weekly_plan) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.association :user %>
+    <%= f.input :user_id, as: :hidden,input_html: { value: current_user.id } %>
     <%= f.input :plan_title %>
+    <%= f.simple_fields_for :tasks do |task| %>
+      <div class='fields'>
+        <%= task.input :name %>
+        <%= task.input :due_date %>
+        <%= task.input :status %>
+        <%= task.link_to_remove 'Remove' %>
+      </div>
+      <% end %>
+      <%= f.link_to_add 'Add Task', :tasks %>
   </div>
-
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

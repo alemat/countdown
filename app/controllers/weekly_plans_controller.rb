@@ -24,7 +24,7 @@ class WeeklyPlansController < ApplicationController
   # POST /weekly_plans
   # POST /weekly_plans.json
   def create
-    @weekly_plan = WeeklyPlan.new(weekly_plan_params)
+    @weekly_plan = current_user.weekly_plans.new(weekly_plan_params)
 
     respond_to do |format|
       if @weekly_plan.save
@@ -69,6 +69,6 @@ class WeeklyPlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def weekly_plan_params
-      params.require(:weekly_plan).permit(:user_id, :plan_title)
+      params.require(:weekly_plan).permit(:user_id, :plan_title, tasks_attributes: [:id, :name, :due_date, :status, :_destroy])
     end
 end

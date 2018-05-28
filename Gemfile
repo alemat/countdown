@@ -21,7 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'fullcalendar-rails'
 gem 'jquery-datatables'
 gem 'sassc-rails'
-gem 'momentjs-rails'
+gem 'momentjs-rails', '>= 2.9.0'
 gem "paperclip", "~> 5.2.1"
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'jquery-rails'

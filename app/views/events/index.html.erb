@@ -27,8 +27,6 @@
                                   <tr>
                                     <th>Title</th>
                                     <th>Event location</th>
-                                    <th>Start time</th>
-                                    <th>End time</th>
                                     <th></th>
                                   </tr>
                                 </thead>
@@ -38,12 +36,10 @@
                                     <tr>
                                       <td><%= event.title %></td>
                                       <td><%= event.event_location %></td>
-                                      <td><%= event.start_time %></td>
-                                      <td><%= event.end_time %></td>
                                       <td>
-                                      <%= link_to 'Show Timer', event, class: 'btn btn-info' %>
+                                      <%= link_to 'Details', event, class: 'btn btn-info' %>
                                       <% if current_user.try(:superadmin_role?) || current_user.try(:supervisor_role?) %>
-                                      <%= link_to 'Edit', edit_event_path(event), class: 'btn btn-success' %>
+                                      <%= link_to 'Edit', edit_event_path(event), class: 'btn btn-info' %>
                                       <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %>
                                       <% end %>
                                       </td>
@@ -82,8 +78,8 @@ var x = setInterval(function() {
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
     // Output the result in an element with id="demo"
-    document.getElementById("hstpcountdown").innerHTML = days + "  Days  : " + hours + " Hours  : "
-    + minutes + "  Minutes  : " + seconds + " Seconds";
+    document.getElementById("hstpcountdown").innerHTML = days + " Days : " + hours + " h : "
+    + minutes + " m : " + seconds + " s";
     
     // If the count down is over, write some text 
     if (distance < 0) {

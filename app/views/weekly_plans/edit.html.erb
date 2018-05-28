@@ -1,6 +1,10 @@
 <h1>Editing Weekly Plan</h1>
+<div class="card">
+    <div class="card-body">
 
 <%= render 'form', weekly_plan: @weekly_plan %>
 
-<%= link_to 'Show', @weekly_plan %> |
-<%= link_to 'Back', weekly_plans_path %>
+<%= link_to 'Show', @weekly_plan, class: 'btn btn-info' %> |
+<%= link_to 'Back', weekly_plans_path, class: 'btn btn-info' %>
+    </div>
+</div>
